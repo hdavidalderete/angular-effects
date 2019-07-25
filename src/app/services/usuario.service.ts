@@ -11,7 +11,13 @@ export class UsuarioService {
 
   getUsers() {
     return this.http.get(`${this.url}/users?page=2`).pipe(
-      map(resp => resp['data'])
+      map((resp: any) => resp.data)
+    );
+  }
+
+  getUser(id: string) {
+    return this.http.get(`${this.url}/users/${id}`).pipe(
+      map( (resp: any) => resp.data)
     );
   }
 }
